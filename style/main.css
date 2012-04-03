@@ -1,18 +1,16 @@
 body {
-  background-color: #000;
-  color: #fff;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+	background-color: #000;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
 }
 .hide{
 	display:none;
 }
 #pages {
-	width:2048px;
+	overflow: hidden;
 }
 #pages img{
-	position:relative;
+	position:absolute;
+	left:0;
 }

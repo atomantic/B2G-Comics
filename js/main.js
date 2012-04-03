@@ -10,34 +10,35 @@ $(function(){
 		    'SleepDeprivationNinja-07.jpg',
 		    'SleepDeprivationNinja-08.jpg'
 	    ],
-		$pages = $('#pages');
-	// init
-	$('#pageA').attr('src',dirPages + pages[0]).data('page',1);
-	$('#pageB').attr('src',dirPages + pages[1]).data('page',2);
-	$pages.find('img').on('click',function(){
-		var $t = $(this).parent();
-		if($t.data('anim')){
+		$pages = $('#pages'),
+		$images = $pages.find('img'),
+		$current = $images.first(),
+		$next = $images.last();
+		
+	$current.attr('src',dirPages + pages[0]).data('page',1);
+	$next.attr('src',dirPages + pages[1]).data('page',2);
+	$pages.on('click',function(){
+		if($pages.data('anim')){
 			return;
 		}
-		$t.data('anim',true);
-		var $images = $t.find('img'),
-			$a = $images.first(),	
-			$b = $images.last(),
-			width = $a.width(),
-			next = Number($b.data('page'));
-		next++;
-		if(next > pages.length){
-			next = 1;
-		}
-		$a.animate({'margin-left':'-'+width+'px'});	
-		$b.animate({'margin-left':'0px'},function(){
-			$a.detach();
-			$b.after(
-				$a.css({'margin-left':'0px'})
-					.attr('src',dirPages+pages[next-1])
-					.data('page',next)
-			);
-			$t.data('anim',false);
+		$pages.data('anim',true);
+		var currentWidth = $current.width(),
+			nextWidth = $next.width();
+		$current.animate({'left':'-'+currentWidth+'px'},function(){
+			next = Number($next.data('page'));
+			next++;
+			if(next > pages.length){
+				next = 1;
+			}
+			$(this).css({display:'none',left:nextWidth+'px'})
+				.attr('src',dirPages+pages[next-1])
+				.data('page',next);
+			$next = $(this);
+		});	
+		$next.show().css({left:currentWidth+'px'}).animate({'left':'0px'},function(){
+			//$pages.css({width:bwidth+'px'});
+			$current = $(this);
+			$pages.css({width:$current.width()+'px'}).data('anim',false);
 		});
 	})
 });
