@@ -1,0 +1,20 @@
+{
+  "name": "Comics",
+  "version": "1.0",
+  "default_locale": "en-US",
+  "icons": {
+    "120": "/portfolio/b2g/comics/style/icons/main.png"
+  },
+  "description": "Comics Reader",
+  "launch_path": "/portfolio/b2g/comics/",
+  "locales": {
+    "en-US": {
+      "name": "Comics",
+      "description": "Comics Reader"
+    }
+  },
+  "developer": {
+    "url": "https://github.com/atomantic/B2G-Comics",
+    "name": "Adam Eivy"
+  }
+}

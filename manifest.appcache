@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# Version 91d4c0d123958261585c7a67ae063f69
+comics/issue01/SleepDeprivationNinja-01.jpg
+comics/issue01/SleepDeprivationNinja-02.jpg
+comics/issue01/SleepDeprivationNinja-03.jpg
+comics/issue01/SleepDeprivationNinja-04.jpg
+comics/issue01/SleepDeprivationNinja-05.jpg
+comics/issue01/SleepDeprivationNinja-06.jpg
+comics/issue01/SleepDeprivationNinja-07.jpg
+comics/issue01/SleepDeprivationNinja-08.jpg
+comics/sdn.json
+index.html
+install/index.html
+install/manifest.php
+js/jquery.min.js
+js/main.js
+locale/main.properties
+
+manifest.json
+style/icons/main.png
+style/main.css
+http://gaiamobile.org/webapi.js
