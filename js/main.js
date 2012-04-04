@@ -20,14 +20,16 @@ $(function(){
 		$pages = $('#pages'),
 		$images = $pages.find('img'),
 		$current = $images.first(),
-		$next = $images.last();
+		$next = $current.next(),
+		$preload = $next.next();
 	
 	// populate the first 2 pages for initial load
 	$current.attr('src',dirPages + pages[0]).data('page',1);
 	$next.attr('src',dirPages + pages[1]).data('page',2);
+	$preload.attr('src',dirPages + pages[2]).data('page',3);
 	
-	// add handler for clicking/tapping for next page
-	// TODO: backward navigation and swipe
+	// add handler for clicking/tapping to next page
+	// TODO: backward navigation and swipe events
 	$pages.on('click',function(){
 		// make sure we are not in the middle of animation
 		if($pages.data('anim')){
@@ -39,19 +41,24 @@ $(function(){
 			nextWidth = $next.width();
 		// swipe current off page
 		$current.animate({'left':'-'+currentWidth+'px'},function(){
-			next = Number($next.data('page'));
-			next++;
-			if(next > pages.length){
-				next = 1;
+			// figure out the next preload that this image element will cache
+			preload = Number($preload.data('page'));
+			preload++;
+			if(preload > pages.length){
+				preload = 1;
 			}
-			$(this).css({display:'none',left:nextWidth+'px'})
-				.attr('src',dirPages+pages[next-1])
-				.data('page',next);
-			// now this one is holding the next page
-			$next = $(this);
+			// hide it and position it at the end
+			$(this).css({display:'none',left:(currentWidth+nextWidth)+'px'})
+				.attr('src',dirPages+pages[preload-1])
+				.data('page',preload);
+			// now the next image is the former preload
+			$next = $preload;
+			// now this element is holding the preload page
+			$preload = $(this);
 		});	
 		// swipe next page in as current
 		$next.show().css({left:currentWidth+'px'}).animate({'left':'0px'},function(){
+			// now this is the current
 			$current = $(this);
 			$pages.css({width:nextWidth+'px'}).data('anim',false);
 		});
