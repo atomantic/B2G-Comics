@@ -3,10 +3,12 @@
   "version": "1.0",
   "default_locale": "en-US",
   "icons": {
-    "120": "/portfolio/b2g/comics/style/icons/main.png"
+  	"32": "/b2g/comics/style/icons/32.png",
+  	"64": "/b2g/comics/style/icons/64.png",
+  	"128": "/b2g/comics/style/icons/128.png"
   },
   "description": "Comics Reader",
-  "launch_path": "/portfolio/b2g/comics/",
+  "launch_path": "/b2g/comics/",
   "locales": {
     "en-US": {
       "name": "Comics",

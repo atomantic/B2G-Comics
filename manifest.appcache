@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Version 11fc9026d89897dcd7878ab45adbbe51
+# Version 8b3015ab08138dbb94006635d3d96f20
 comics/issue01/SleepDeprivationNinja-01.jpg
 comics/issue01/SleepDeprivationNinja-02.jpg
 comics/issue01/SleepDeprivationNinja-03.jpg
@@ -17,6 +17,9 @@ js/main.js
 locale/main.properties
 
 manifest.json
-style/icons/main.png
+style/icons/128.png
+style/icons/16.png
+style/icons/32.png
+style/icons/64.png
 style/main.css
 http://gaiamobile.org/webapi.js
